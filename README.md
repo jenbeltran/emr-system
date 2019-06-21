@@ -1,5 +1,7 @@
 #Chansey
 
+Instructions: npm install and npm start
+
 Description: FS1030 project - An Electronic Medical Record system for healthcare providers with authentication
 
 Used: HTML, CSS, Bootstrap, Node, Express, MySQL
@@ -18,8 +20,8 @@ named Peter Patterson, it should show up in the revision history as “Peter’s
 address changed on 19-Apr-2019 by Dr. Abc” and so forth with latest revision at
 the top.
 
-Also, designed a super admin interface where a super admin user would be able to:
+Also, design a super admin interface where a super admin user would be able to:
 1) Search/Create/Read/Update/Delete Patients - Ryan Legaspi
 2) Search/Create/Read/Update/Delete Care Providers - Jen Beltran
 3) Login authentication and password encryption - Jen Beltran
-4) Database creation - Jen Beltran# emr-system
+4) Database creation - Jen Beltran
