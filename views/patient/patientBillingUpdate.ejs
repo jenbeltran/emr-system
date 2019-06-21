@@ -1,0 +1,36 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="container form-title">
+    <h1>Update Patient Billing and Insurance Details</h1>
+</div>
+
+<% result.forEach((patient, index) => { %>
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/BillingUpdate" method="POST">
+        <div class="form-group">
+            <label>Insurance Provider</label>
+            <input type="text" name="ins_provider" class="form-control" placeholder="Enter Insurance Provider" value="<%=patient.ins_provider%>">
+        </div>
+        <div class="form-group">
+            <label>Insurance Policy</label>
+            <input type="text" name="ins_policy" class="form-control" placeholder="Enter Insurance Policy" value="<%=patient.ins_policy%>">
+        </div>
+        <div class="form-group">
+            <label>Credit Card Number</label>
+            <input type="number" name="creditcard_num" class="form-control" placeholder="Enter Credit Card Number" value="<%=patient.creditcard_num%>">
+        </div>
+        <div class="form-group">
+            <label>Credit Card Security Code</label>
+            <input type="number" name="creditcard_code" class="form-control" placeholder="Enter Credit Card Securiy Code" value="<%=patient.creditcard_code%>">
+        </div>
+        <div class="form-group">
+            <label>Expiration Date</label>
+            <input type="text" name="creditcard_exp" class="form-control" placeholder="Enter Expiration Date" value="<%=patient.creditcard_exp%>">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<% }) %>
+
+<%- include('../partials/footer'); -%>

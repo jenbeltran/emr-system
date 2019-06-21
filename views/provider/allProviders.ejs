@@ -1,0 +1,44 @@
+<%- include('../partials/header'); -%>
+
+<div class="container form-title">
+    <h1>My Care Providers</h1>
+</div>
+
+<div class="table-wrapper">
+    <table class="table table-hovered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Care Provider ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">Super Admin</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+<% for(let i=0; i < results.length; i++) {%>
+
+            <tr>
+                <th scope="row" id="careID"><%= results[i].careprovider_id %></th>
+                <td><%= results[i].careprovider_firstname%> <%= results[i].careprovider_lastname%> </td>
+                <td><%= results[i].careprovider_username %></td>
+                <td><%= results[i].is_super_admin_user %></td>
+                <td> <a class="btn btn-warning btn-sm" href="/provider/<%= results[i].careprovider_id%>/update" rel="noopener">Edit</a> 
+                    <a href="/delete/<%=results[i].careprovider_id%>" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+                
+                
+                
+            </tr>
+            
+<% } %>
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+
+<%- include('../partials/footer'); -%>

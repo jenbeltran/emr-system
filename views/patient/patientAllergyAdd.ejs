@@ -1,0 +1,39 @@
+<%- include('../partials/header'); -%>
+
+<% if(error && error.length > 0) { %>
+    <div class="alert alert-warning" role="alert">
+        <%= error %>
+    </div>
+    <% } %>
+    
+
+<div class="container form-title">
+    <h1>Add Patient Allergy Medication</h1>
+</div>
+
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/AllergyAdd" method="POST">
+        <div class="form-group">
+                <label>Medication</label>
+                <input type="text" name="medications" class="form-control" placeholder="Enter Medication">
+        </div>
+        <div class="form-group">
+            <label>Notes</label>
+            <input type="text" name="notes" class="form-control" placeholder="Enter Medication Notes">
+        </div>
+        <div class="form-group">
+            <label>Test Result</label>
+            <select id="severity_level" name="severity_level" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<%- include('../partials/footer'); -%>

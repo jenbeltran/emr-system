@@ -1,0 +1,33 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="container form-title">
+    <h1>Update Patient Radiology Result</h1>
+</div>
+
+<% result.forEach((patient, index) => { %>
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/RadioUpdate" method="POST">
+        <div class="form-group">
+            <label>Exam Type</label>
+        </div>
+        <div class="form-group">
+            <label><%=patient.exam_type%></label>
+        </div>
+        <div class="form-group">
+            <label>Date Completed</label>
+            <input type="text" name="date_completed" class="form-control" placeholder="Enter Dose Quantity" value="<%=patient.date_completed%>">
+        </div>
+        <div class="form-group">
+            <label>Test Result</label>
+            <select id="result" name="result" class="form-control">
+                <option <% if (patient.result=="Positive"){%>selected<% }; %> value="Positive">Positive</option>
+                <option <% if (patient.result=="Negative"){%>selected<% }; %> value="Negative">Negative</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<% }) %>
+
+<%- include('../partials/footer'); -%>

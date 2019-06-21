@@ -1,0 +1,99 @@
+<%- include('../partials/header'); -%>        
+<% if (result.length > 0) {%>
+ <div id="sideNav">
+       
+    <table class="main-table table table-bordered">
+                <%
+                console.log(JSON.stringify(result)); 
+                %>
+               
+                <tbody>
+                   <tr>
+                      <td width="10%"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></td>
+                      <td width="90%"><%= getPatient_fname + " " + getPatient_lname%></td>
+                    </tr>
+                    <tr>
+                      <td width="10%"><img src="/public/healthcard.PNG"/></td>
+                      <td width="90%"><%= getPatient_hcard%></td>
+                    </tr>
+                    <tr>
+                      <td width="10%"><img src="/public/address.png"/></td>
+                      <td width="90%"><%= getPatient_street%></td>
+                    </tr>
+                    <tr>
+                      <td width="10%"></td>
+                      <td width="90%"><%=getPatient_city%></td>
+                    </tr>
+                    <tr>
+                      <td width="10%"></td>
+                      <td width="90%"><%=getPatient_province%></td>
+                    </tr>
+                    <tr>
+                      <td width="10%"><img src="/public/phone.png"/></td>
+                      <td width="90%"><%= getPatient_contact%></td>
+                    </tr>
+                </tbody>
+       
+              </table>
+              
+              <ul class="sideNav">
+                    <li class="selected">Patient Profile</a></li>
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/billing">Billing Information</a></li>
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/immunization">Immunization Status</a></li>
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/prescription">Prescriptions</a></li>
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/labresult">Laboratory Results</a></li>
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/radiology">Radiology</a></li>
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/allergy">Allergies</a></li>
+                  </ul>
+</div>
+
+<div id="notes">
+        <h1>Patient Profile</h1>
+        <table class="main-table table table-bordered">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                <ul class="navbar-nav mr-auto">
+                        <li>
+                            <a href="/patient/<%= getPatient_hcard%>/ProfileUpdate">
+                            Edit Profile |
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="">
+                                Delete Profile
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+                <tbody>
+                <tr>
+                      <td>Health Card Number</td>
+                      <td><%=getPatient_hcard%></td>
+                    </tr>
+                   <tr>
+                      <td>First Name</td>
+                      <td><%=getPatient_fname + " " + getPatient_lname%></td>
+                    </tr>
+                    <tr>
+                      <td>Street Name</td>
+                      <td><%=getPatient_street%></td>
+                    </tr>
+                    <tr>
+                      <td>City</td>
+                      <td><%=getPatient_city%></td>
+                    </tr>
+                    <tr>
+                      <td>Province</td>
+                      <td><%=getPatient_province%></td>
+                    </tr>
+                </tbody>
+              </table>
+</div>
+
+
+<% } else { %>
+    <p class="text-center">No Record found</p>
+<% } %>
+        
+<%- include('../partials/footer'); -%>

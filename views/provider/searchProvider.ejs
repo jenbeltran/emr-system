@@ -1,0 +1,28 @@
+<%- include('../partials/header'); -%>
+
+<% if(error && error.length > 0) { %>
+<div class="alert alert-warning" role="alert">
+    <%= error %>
+</div>
+<% } %>
+
+<div class="container form-title">
+    <h1>Search Care Provider</h1>
+</div>
+
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/provider/searchresults" method="POST">
+        <div class="form-group">
+            <label>Care Provider First Name</label>
+            <input type="text" name="provider_fname" class="form-control" placeholder="Enter first name">
+        </div>
+        <div class="form-group">
+            <label>Care Provider Last Name</label>
+            <input type="text" name="provider_lname" class="form-control" placeholder="Enter last name">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<%- include('../partials/footer'); -%>

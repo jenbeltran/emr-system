@@ -1,0 +1,177 @@
+<%- include('../partials/header'); -%>        
+<% if (result.length > 0) {%>
+ <div id="sideNav">
+       
+    <table class="main-table table table-bordered">
+                <%
+                console.log(JSON.stringify(result)); 
+                %>
+               
+                    <tbody>
+                        <tr>
+                           <td width="10%"><img src="/public/profile-female.PNG"/></td>
+                           <td width="90%"><%= getPatient_fname + " " + getPatient_lname%></td>
+                         </tr>
+                         <tr>
+                           <td width="10%"><img src="/public/healthcard.PNG"/></td>
+                           <td width="90%"><%= getPatient_hcard%></td>
+                         </tr>
+                         <tr>
+                           <td width="10%"><img src="/public/address.png"/></td>
+                           <td width="90%"><%= getPatient_street%></td>
+                         </tr>
+                         <tr>
+                           <td width="10%"></td>
+                           <td width="90%"><%=getPatient_city%></td>
+                         </tr>
+                         <tr>
+                           <td width="10%"></td>
+                           <td width="90%"><%=getPatient_province%></td>
+                         </tr>
+                         <tr>
+                           <td width="10%"><img src="/public/phone.png"/></td>
+                           <td width="90%"><%= getPatient_contact%></td>
+                         </tr>
+                     </tbody>
+       
+              </table>
+              
+              <ul class="sideNav">
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/profile">Patient Profile</a></li>
+                    <li class="selected">Billing Information</li>
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/immunization">Immunization Status</a></li>
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/prescription">Prescriptions</a></li>
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/labresult">Laboratory Results</a></li>
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/radiology">Radiology</a></li>
+                    <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/allergy">Allergies</a></li>
+                  </ul>
+</div>
+
+<div id="notes">
+        <h1>Patient Billing Information</h1>
+
+        <% result.forEach((patient, index) => { %>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                    <ul class="navbar-nav mr-auto">
+                            <li>
+                                <a href="/patient/<%= getPatient_hcard%>/BillingUpdate">
+                                    [<%=index+1%>] Edit Billing Information |
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="/patient/<%= getPatient_hcard%>/BillingDelete">
+                                    [<%=index+1%>] Delete Billing Information
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </nav>
+        <table class="main-table table table-bordered">
+                <thead>
+                  <tr>
+                    <th bgcolor="#add8e6">Insurance</th>
+                    <th bgcolor="#add8e6"></th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                   <tr>
+                      <td>Provider</td>
+                      <td><%=patient.ins_provider%></td>
+                    </tr>
+                    <tr>
+                      <td>Policy Number</td>
+                      <td><%=patient.ins_policy%></td>
+                    </tr>
+                </tbody>
+              </table>
+              
+              <table class="main-table table table-bordered">
+                <thead>
+                  <tr>
+                    <th bgcolor="#add8e6">Credit Card</th>
+                    <th bgcolor="#add8e6"></th>
+                  </tr>
+                </thead>
+      
+                <tbody>
+                   <tr>
+                      <td>Card Number</td>
+                      <td><%=patient.creditcard_num%></td>
+                    </tr>
+                    <tr>
+                      <td>Card Security Code</td>
+                      <td><%=patient.creditcard_code%></td>
+                    </tr>
+                    <tr>
+                      <td>Expiration Date</td>
+                      <td><%=patient.creditcard_exp%></td>
+                    </tr>
+                </tbody>
+                
+              </table>
+              <% }) %>
+
+</div>
+
+
+<% } else { %>
+    <div id="sideNav">
+       
+        <table class="main-table table table-bordered">
+                    <%
+                    console.log(JSON.stringify(result)); 
+                    %>
+                   
+                        <tbody>
+                            <tr>
+                               <td width="10%"><img src="/public/profile-female.PNG"/></td>
+                               <td width="90%"><%= getPatient_fname + " " + getPatient_lname%></td>
+                             </tr>
+                             <tr>
+                               <td width="10%"><img src="/public/healthcard.PNG"/></td>
+                               <td width="90%"><%= getPatient_hcard%></td>
+                             </tr>
+                             <tr>
+                               <td width="10%"><img src="/public/address.png"/></td>
+                               <td width="90%"><%= getPatient_street%></td>
+                             </tr>
+                             <tr>
+                               <td width="10%"></td>
+                               <td width="90%"><%=getPatient_city%></td>
+                             </tr>
+                             <tr>
+                               <td width="10%"></td>
+                               <td width="90%"><%=getPatient_province%></td>
+                             </tr>
+                             <tr>
+                               <td width="10%"><img src="/public/phone.png"/></td>
+                               <td width="90%"><%= getPatient_contact%></td>
+                             </tr>
+                         </tbody>
+           
+                  </table>
+                  
+                  <ul class="sideNav">
+                        <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/profile">Patient Profile</a></li>
+                        <li class="selected">Billing Information</li>
+                        <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/immunization">Immunization Status</a></li>
+                        <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/prescription">Prescriptions</a></li>
+                        <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/labresult">Laboratory Results</a></li>
+                        <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/radiology">Radiology</a></li>
+                        <li class="sideNav"><a href="/patient/<%= getPatient_hcard%>/allergy">Allergies</a></li>
+                      </ul>
+    </div>
+    
+    <div id="notes">
+            <h1>Patient Billing Information</h1>
+            
+            <label>No Billing / Insurance Information for this patient</label><br/>
+            <a href="/patient/<%= getPatient_hcard%>/BillingAdd">Click Here to Add</a>
+
+    </div>
+
+<% } %>
+        
+<%- include('../partials/footer'); -%>

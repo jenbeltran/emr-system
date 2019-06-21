@@ -1,0 +1,41 @@
+<%- include('../partials/header'); -%>
+
+<% if(error && error.length > 0) { %>
+    <div class="alert alert-warning" role="alert">
+        <%= error %>
+    </div>
+    <% } %>
+    
+
+<div class="container form-title">
+    <h1>Add Patient Prescription Records</h1>
+</div>
+
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/PrescAdd" method="POST">
+        <div class="form-group">
+                <label>Prescription Name</label>
+                <input type="text" name="prescription_name" class="form-control" placeholder="Enter Prescription Name">
+        </div>
+        <div class="form-group">
+            <label>Dosage Quantity</label>
+            <input type="number" name="dose_qty" class="form-control" placeholder="Enter Dosage">
+        </div>
+        <div class="form-group">
+            <label>Days Supply</label>
+            <input type="number" name="days_supply" class="form-control" placeholder="Enter Days Supply">
+        </div>
+        <div class="form-group">
+            <label>Administration</label>
+            <input type="text" name="route_of_admin" class="form-control" placeholder="Administration">
+        </div>
+        <div class="form-group">
+            <label>Date Filled</label>
+            <input type="text" name="date_filled" class="form-control" placeholder="Enter (YYYY-MM-DD) Date Filled">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<%- include('../partials/footer'); -%>

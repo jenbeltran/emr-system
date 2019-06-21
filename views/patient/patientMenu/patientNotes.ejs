@@ -1,0 +1,24 @@
+<div id="notes">
+        <h1>Patient Notes</h1>
+        <%
+        for ( var i = 1; i <= 5; i++) {
+        %>
+        <table class="main-table table table-bordered">
+                <thead>
+                  <tr align="center">
+                    <th>Completed by:<%=" Dr. Ryan Legaspi" %></th>
+                    <th>Date Entered:<%=" July 07, 2019" %></th>     
+                  </tr>
+                </thead>
+      
+                <tbody>
+                   <tr>
+                      <td colspan="2"><%="Note " + i + ":" +" Care Provider Notes goes here"%></td>
+                    </tr>
+                </tbody>
+              </table>
+              <%
+            }
+              %>
+
+</div>

@@ -1,0 +1,40 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="container form-title">
+    <h1>Update Patient Laboratory Result</h1>
+</div>
+
+<% result.forEach((patient, index) => { %>
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/LabUpdate" method="POST">
+        <div class="form-group">
+            <label>Test Name</label>
+        </div>
+        <div class="form-group">
+            <label><%=patient.test_name%></label>
+        </div>
+        <div class="form-group">
+            <label>Date Completed</label>
+            <input type="text" name="date_completed" class="form-control" placeholder="Enter (YYYY-MM-DD) Date Completed" value="<%=patient.date_completed%>">
+        </div>
+        <div class="form-group">
+            <label>Test Result</label>
+            <select id="result" name="result" class="form-control">
+                <option <% if (patient.result=="Positive"){%>selected<% }; %> value="Positive">Positive</option>
+                <option <% if (patient.result=="Negative"){%>selected<% }; %> value="Negative">Negative</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Abnormal(Y/N)</label>           
+            <select id="abnormal" name="abnormal" class="form-control">
+                <option <% if (patient.abnormal==1){%>selected<% }; %> value="1">Yes</option>
+                <option <% if (patient.abnormal==0){%>selected<% }; %> value="0">No</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<% }) %>
+
+<%- include('../partials/footer'); -%>

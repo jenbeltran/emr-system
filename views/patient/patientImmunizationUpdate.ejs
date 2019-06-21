@@ -1,0 +1,30 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="container form-title">
+    <h1>Update Patient Immunization Record</h1>
+</div>
+
+<% result.forEach((patient, index) => { %>
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/ImmunizationUpdate" method="POST">
+        <div class="form-group">
+            <label>Vaccine Name</label>
+        </div>
+        <div class="form-group">
+            <label><%=patient.vaccine_name%></label>
+        </div>
+        <div class="form-group">
+            <label>Date Completed</label>
+            <input type="text" name="date_completed" class="form-control" placeholder="Enter (YYYY-MM-DD) Date Completed" value="<%=patient.date_completed%>">
+        </div>
+        <div class="form-group">
+            <label>Date Next Visit</label>
+            <input type="text" name="date_next_visit" class="form-control" placeholder="Enter (YYYY-MM-DD) Date Next Visit" value="<%=patient.date_next_visit%>">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<% }) %>
+
+<%- include('../partials/footer'); -%>

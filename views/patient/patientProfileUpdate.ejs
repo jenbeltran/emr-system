@@ -1,0 +1,52 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="container form-title">
+    <h1>Update Patient Profile Details</h1>
+</div>
+
+<% result.forEach((patient, index) => { %>
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/ProfileUpdate" method="POST">
+        <div class="form-group">
+            <label>Patient's First Name</label>
+            <input type="text" name="patient_firstname" class="form-control" placeholder="Enter First Name" value="<%=patient.patient_firstname%>">
+        </div>
+        <div class="form-group">
+            <label>Patient's Last Name</label>
+            <input type="text" name="patient_lastname" class="form-control" placeholder="Enter Last Name" value="<%=patient.patient_lastname%>">
+        </div>
+        <div class="form-group">
+            <label>Street Adress</label>
+            <input type="text" name="patient_street" class="form-control" placeholder="Enter Street" value="<%=patient.patient_street%>">
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input type="text" name="patient_city" class="form-control" placeholder="Enter City" value="<%=patient.patient_city%>">
+        </div>
+        <div class="form-group">
+            <label>Province</label>
+            <input type="text" name="patient_province" class="form-control" placeholder="Enter Province" value="<%=patient.patient_province%>">
+        </div>
+        <div class="form-group">
+            <label>Postal Code</label>
+            <input type="text" name="patient_postalcode" class="form-control" placeholder="Enter Postal Code" value="<%=patient.patient_postalcode%>">
+        </div>
+        <div class="form-group">
+            <label>Contact Number</label>
+            <input type="text" name="patient_contact" class="form-control" placeholder="Enter Contact Number" value="<%=patient.patient_contact%>">
+        </div>
+        <div class="form-group">
+            <label>Date Of Birth</label>
+            <input type="text" name="patient_dob" class="form-control" placeholder="Enter Date of Birth" value="<%=patient.patient_DOB%>">
+        </div>
+        <div class="form-group">
+            <label>Email Adress</label>
+            <input type="text" name="patient_email" class="form-control" placeholder="Enter Email Adress" value="<%=patient.patient_email%>">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<% }) %>
+
+<%- include('../partials/footer'); -%>

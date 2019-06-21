@@ -1,0 +1,36 @@
+<%- include('../partials/header'); -%>
+
+<% if(error && error.length > 0) { %>
+    <div class="alert alert-warning" role="alert">
+        <%= error %>
+    </div>
+    <% } %>
+    
+
+<div class="container form-title">
+    <h1>Add Patient Radiology Results</h1>
+</div>
+
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/RadioAdd" method="POST">
+        <div class="form-group">
+                <label>Exam Type</label>
+                <input type="text" name="exam_type" class="form-control" placeholder="Enter Exam Type">
+        </div>
+        <div class="form-group">
+            <label>Date Complete</label>
+            <input type="text" name="date_completed" class="form-control" placeholder="Enter (YYYY-MM-DD) Date Completed">
+        </div>
+        <div class="form-group">
+            <label>Test Result</label>
+            <select id="result" name="result" class="form-control">
+                <option value="Positive">Positive</option>
+                <option value="Negative">Negative</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<%- include('../partials/footer'); -%>

@@ -1,0 +1,36 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="container form-title">
+    <h1>Update Patient Allergy Medications</h1>
+</div>
+
+<% result.forEach((patient, index) => { %>
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/AllergyUpdate" method="POST">
+        <div class="form-group">
+            <label>Medication Name</label>
+        </div>
+        <div class="form-group">
+            <label><%=patient.medications%></label>
+        </div>
+        <div class="form-group">
+            <label>Notes</label>
+            <input type="text" name="notes" class="form-control" placeholder="Enter Dose Quantity" value="<%=patient.notes%>">
+        </div>
+        <div class="form-group">
+            <label>Severity Level</label>
+            <select id="severity_level" name="severity_level" class="form-control">
+                <option <% if (patient.severity_level==1){%>selected<% }; %> value="1">1</option>
+                <option <% if (patient.severity_level==2){%>selected<% }; %> value="2">2</option>
+                <option <% if (patient.severity_level==3){%>selected<% }; %> value="3">3</option>
+                <option <% if (patient.severity_level==4){%>selected<% }; %> value="4">4</option>
+                <option <% if (patient.severity_level==5){%>selected<% }; %> value="5">5</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<% }) %>
+
+<%- include('../partials/footer'); -%>
