@@ -1,0 +1,40 @@
+<%- include('../partials/header'); -%>        
+<% if (result.length > 0) {%>
+
+<div id="notes">
+    <h1>List of Patients</h1>
+    
+    <table class="main-table table table-bordered">
+            <thead>
+              <tr align="center" bgcolor="#add8e6">
+                <th>Health Card Number</th>
+                <th>Patient's Name</th>
+                <th>Address</th>
+                <th>Contact Details</th>     
+                <th>Date of Birth<br /> (dd/mm/yyyy)</th>
+                <th>Email Address</th>
+              </tr>
+            </thead>
+  
+            <tbody>
+                <% result.forEach((patient, index) => { %>
+                %>
+               <tr>
+                  <td><a href="/patient/<%= getPatient_hcard%>/searchName"><%=patient.patient_healthcard%></a></td>
+                  <td><%=patient.patient_lastname%>,<%=patient.patient_firstname%></td>
+                  <td><%=patient.patient_street%> <%=patient.patient_city%>,<%=patient.patient_province%> <%=patient.patient_postalcode%></td>
+                  <td><%=patient.patient_contact%></td>
+                  <td><%=patient.patient_DOB%></td>
+                  <td><%=patient.patient_email%></td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+</div>
+
+
+<% } else { %>
+    <p class="text-center">No Record found</p>
+<% } %>
+        
+<%- include('../partials/footer'); -%>
