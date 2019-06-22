@@ -22,6 +22,7 @@ let patientBillingRoute = require('./patient/patientBillingRoute');
 
 //Search via Names
 let searchPatientNameRoute = require('./patient/searchPatientNameRoute');
+let listAllPatientRoute = require('./patient/listAllPatientRoute');
 
 // Routes for Updates
 let patientBillingUpdateRoute = require('./patient/patientBillingUpdateRoute');
@@ -84,8 +85,9 @@ router.post('/register', registerRoute.post);
 router.get('/patient/search', searchPatientRoute.get);
 router.post('/patient/search', searchPatientRoute.post);
 
-//Patient search via First Name and Last Name and results page
+//Patient seadrch via First Name and Last Name and results page
 router.get('/patient/:id/searchName', searchPatientNameRoute.get);
+router.get('/patient/listAllPatient', listAllPatientRoute.get);
 router.post('/patient/searchName', searchPatientNameRoute.post);
 
 // Add new patient page
