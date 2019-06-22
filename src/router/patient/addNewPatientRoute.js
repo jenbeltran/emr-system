@@ -9,14 +9,41 @@ let db = require('../../database');
 function getAddNewPatientRoute(req, res, next) {
 	res.render('patient/addNewPatient', {
 		username : req.session.username,
-		isAdmin  : req.session.isAdmin,
+        isAdmin  : req.session.isAdmin,
+        getPatient_fname : req.session.fname,
+        getPatient_lname    : req.session.lname,
+                    getPatient_hcard    : req.session.hcard,
+                    getPatient_street    : req.session.street,
+                    getPatient_city    : req.session.city,
+                    getPatient_province    : req.session.province,
+                    getPatient_contact    : req.session.contact,
 		pageId   : 'addNewPatient',
 		title    : 'Chancey | Add New Patient'
 	});
 }
 
 function postAddNewPatientRoute(req, res, next) {
-    
+    if (req.body.patient_healthcard =="" || req.body.patient_firstname=="" || req.body.patient_lastname=="" || req.body.patient_street=="" || req.body.patient_contact=="" || req.body.patient_DOB=="" || req.body.patient_city=="" || req.body.patient_province=="" || req.body.patient_postalcode=="" || req.body.patient_email=="")
+{
+    req.flash('error', 'All field is required.');
+                   
+   // res.redirect('/patient/new');
+   res.render('patient/addNewPatient', {
+    username : req.session.username,
+    pageId   : 'patientMenu',
+    title    : 'Chancey | Patient Profile',
+    isAdmin  : req.session.isAdmin,
+    error   : "All field is required.",
+    getPatient_fname    : req.body.patient_firstname,
+getPatient_lname    : req.body.patient_lastname,
+getPatient_hcard    : req.body.patient_healthcard,
+getPatient_street    : req.body.patient_street,
+getPatient_city    : req.body.patient_city,
+getPatient_province    : req.body.patient_province,
+getPatient_contact    : req.body.patient_contact
+});
+next();
+} else {
     //
     let query =
 		'INSERT INTO patient_profile (patient_healthcard,patient_firstname,patient_lastname,patient_street, patient_contact, patient_DOB, patient_city, patient_province, patient_postalcode, patient_email) VALUES(?, ?, ?, ?, ?,?,?,?,?,?)';
@@ -75,6 +102,7 @@ function postAddNewPatientRoute(req, res, next) {
 	);
 
     //	
+}
 }
 
 module.exports = { get: getAddNewPatientRoute, post: postAddNewPatientRoute};

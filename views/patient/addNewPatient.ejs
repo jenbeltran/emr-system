@@ -14,40 +14,70 @@
 <div class="container card bg-light" style="width: 40rem;">
     <form action="/patient/new" method="POST">
         <div class="form-group">
+                <% if(!getPatient_hcard && !getPatient_hcard.length > 0) {%>
+                    <label><b>Please fill in </b></label>
+                    <% }%>
                 <label>Health Card Number</label>
-                <input type="text" name="patient_healthcard" class="form-control" placeholder="Enter Health Card Number">
+                <input type="text" name="patient_healthcard" class="form-control" placeholder="Enter Health Card Number" 
+                value="<% if(getPatient_hcard && getPatient_hcard.length > 0) {%><%=getPatient_hcard%><% } %>">
         </div>
         <div class="form-group">
+                <% if(!getPatient_fname && !getPatient_fname.length > 0) {%>
+                    <label><b>Please fill in </b></label>
+                    <% }%>
             <label>First Name</label>
-            <input type="text" name="patient_firstname" class="form-control" placeholder="Enter first name">
+            <input type="text" name="patient_firstname" class="form-control" placeholder="Enter first name"
+            value="<% if(getPatient_fname && getPatient_fname.length > 0) {%><%=getPatient_fname%><% } %>">
         </div>
         <div class="form-group">
+                <% if(!getPatient_lname && !getPatient_lname.length > 0) {%>
+                    <label><b>Please fill in </b></label>
+                    <% }%>
             <label>Last Name</label>
-            <input type="text" name="patient_lastname" class="form-control" placeholder="Enter last name">
+            <input type="text" name="patient_lastname" class="form-control" placeholder="Enter last name"
+            value="<% if(getPatient_lname && getPatient_lname.length > 0) {%><%=getPatient_lname%><% } %>">
+
         </div>
         <div class="form-group">
                 <label>Date of Birth</label>
-                <input type="text" id="patient_DOB" name="patient_DOB" class="form-control" placeholder="Enter (dd/mm/yyyy) Date of Birth">
+                <input type="text" id="patient_DOB" name="patient_DOB" class="form-control" placeholder="Enter (yyyy/mm/dd) Date of Birth">
             </div>
         <div class="form-group">
+            <% if(!getPatient_street && !getPatient_street.length > 0) {%>
+                <label><b>Please fill in </b></label>
+                <% }%>
             <label>Street Address</label>
-            <input type="text" name="patient_street" class="form-control" placeholder="Enter street address">
+
+            <input type="text" name="patient_street" class="form-control" placeholder="Enter street address"
+            value="<% if(getPatient_street && getPatient_street.length > 0) {%><%=getPatient_street%><% } %>">
         </div>
         <div class="form-group">
+                <% if(!getPatient_city && !getPatient_city.length > 0) {%>
+                    <label><b>Please fill in </b></label>
+                    <% }%>
             <label>City</label>
-            <input type="text" name="patient_city" class="form-control" placeholder="Enter city">
+            <input type="text" name="patient_city" class="form-control" placeholder="Enter city"
+            value="<% if(getPatient_city && getPatient_city.length > 0) {%><%=getPatient_city%><% } %>">
             </div>
         <div class="form-group">
+                <% if(!getPatient_province && !getPatient_province.length > 0) {%>
+                    <label><b>Please fill in </b></label>
+                    <% }%>
             <label>Province</label>
-            <input type="text" name="patient_province" class="form-control" placeholder="Enter province">
+            <input type="text" name="patient_province" class="form-control" placeholder="Enter province"
+            value="<% if(getPatient_province && getPatient_street.province > 0) {%><%=getPatient_province%><% } %>">
         </div>
         <div class="form-group">
             <label>Postal Code</label>
             <input type="text" name="patient_postalcode" class="form-control" placeholder="Enter postal code">
         </div>
         <div class="form-group">
+                <% if(!getPatient_contact && !getPatient_contact.length > 0) {%>
+                    <label><b>Please fill in </b></label>
+                    <% }%>
             <label>Phone Number</label>
-            <input type="number" name="patient_contact" class="form-control" placeholder="Enter phone number">
+            <input type="number" name="patient_contact" class="form-control" placeholder="Enter phone number"
+            value="<% if(getPatient_contact && getPatient_contact.length > 0) {%><%=getPatient_contact%><% } %>">
         </div>
         <div class="form-group">
             <label>Email address</label>
