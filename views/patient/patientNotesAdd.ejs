@@ -1,0 +1,19 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="container form-title">
+    <h1>Add Patient Note Details</h1>
+</div>
+
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/NotesAdd" method="POST">
+        <div class="form-group">
+            <label>Care Provider Note</label>
+            <input type="text" name="patient_note" class="form-control" placeholder="Enter Notes">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<%- include('../partials/footer'); -%>

@@ -32,12 +32,18 @@ function getpatientProfileRoute(req, res, next) {
                     });
                     next();
             } else {
+                db.query(
+                    'SELECT * FROM patient_notes WHERE patient_healthcard=?',
+                    [ req.session.hcard ],
+                    (err, patientNotes) => {
+
                 res.render('patient/patientMenu', {
                 username : req.session.username,
                 pageId   : 'patientprofile',
                 title    : 'Chancey | Search Result - Patient Profile',
                 isAdmin  : req.session.isAdmin,
                 result   : dbUsername,
+                patientNotes:   patientNotes,
                 getPatient_fname    : req.session.fname,
                 getPatient_lname    : req.session.lname,
                 getPatient_hcard    : req.session.hcard,
@@ -47,6 +53,8 @@ function getpatientProfileRoute(req, res, next) {
                 getPatient_contact    : req.session.contact
                 });
                 next();
+            }
+            );
             }
         }
     );

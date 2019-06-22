@@ -91,6 +91,34 @@
               </table>
 </div>
 
+<div id="notes">
+    <h1>Care Provider Notes for the Patient</h1>
+    <a href="/patient/<%= getPatient_hcard%>/NotesAdd">Click Here to Add notes on patient's file.</a>
+    <table class="main-table table table-bordered">
+            <thead>
+              <tr align="center" bgcolor="#add8e6">
+                <th>Date Entered</th>
+                <th>Notes</th>     
+                <th></th>
+              </tr>
+            </thead>
+  
+            <tbody>
+                <% patientNotes.forEach((patient, index) => { %>
+                %>
+               <tr>
+                  <td><%=patient.patient_note%></td>
+                  <td><%=patient.date_created%></td>
+                  <td>
+                    <a href="/patient/<%=patient.id%>/NotesUpdate" class="btn btn-sm btn-success">Edit</a>
+                    <a href="/patient/<%=patient.id%>/NotesDelete" class="btn btn-sm btn-danger">Delete</a>
+                   </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+</div>
+
 
 <% } else { %>
     <p class="text-center">No Record found</p>

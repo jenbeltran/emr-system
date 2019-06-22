@@ -28,6 +28,7 @@ let patientPrescUpdateRoute = require('./patient/patientPrescUpdateRoute');
 let patientLabUpdateRoute = require('./patient/patientLabUpdateRoute');
 let patientRadioUpdateRoute = require('./patient/patientRadioUpdateRoute');
 let patientAllergyUpdateRoute = require('./patient/patientAllergyUpdateRoute');
+let patientNotesUpdateRoute = require('./patient/patientNotesUpdateRoute');
 
 // Routes for Insert
 let patientBillingAddRoute = require('./patient/patientBillingAddRoute');
@@ -36,10 +37,12 @@ let patientPrescAddRoute = require('./patient/patientPrescAddRoute');
 let patientLabAddRoute = require('./patient/patientLabAddRoute');
 let patientRadioAddRoute = require('./patient/patientRadioAddRoute');
 let patientAllergyAddRoute = require('./patient/patientAllergyAddRoute');
+let patientNotesAddRoute = require('./patient/patientNotesAddRoute');
 
 // Routes for Delete
 let patientBillingDeleteRoute = require('./patient/patientBillingDeleteRoute');
 let patientImmunizationDeleteRoute = require('./patient/patientImmunizationDeleteRoute');
+let patientNotesDeleteRoute = require('./patient/patientNotesDeleteRoute');
 
 
 let patientImmunizationRoute = require('./patient/patientImmunizationRoute');
@@ -140,8 +143,13 @@ router.post('/patient/AllergyUpdate', patientAllergyUpdateRoute.post);
 router.get('/patient/:id/AllergyAdd', patientAllergyAddRoute.get);
 router.post('/patient/AllergyAdd', patientAllergyAddRoute.post);
 
-
-// Delete patient
+//Route for Patient Notes
+router.get('/patient/:id/NotesUpdate', patientNotesUpdateRoute.get);
+router.post('/patient/NotesUpdate', patientNotesUpdateRoute.post);
+router.get('/patient/:id/NotesDelete', patientNotesDeleteRoute.get);
+router.post('/patient/NotesDelete', patientNotesDeleteRoute.post);
+router.get('/patient/:id/NotesAdd', patientNotesAddRoute.get);
+router.post('/patient/NotesAdd', patientNotesAddRoute.post);
 
 //Care provider search and results page
 router.get('/provider/search', searchProviderRoute.get);

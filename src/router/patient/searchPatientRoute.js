@@ -41,12 +41,17 @@ db.query(
             req.session.city = dbUsername[0].patient_city;
             req.session.province = dbUsername[0].patient_province;
             req.session.contact = dbUsername[0].patient_contact;
-            res.render('patient/patientmenu', {
+            db.query(
+                'SELECT * FROM patient_notes WHERE patient_healthcard=?',
+                [ req.session.hcard ],
+                (err, patientNotes) => {
+               res.render('patient/patientmenu', {
                 username : req.session.username,
                 pageId   : 'patientprofile',
                 title    : 'Chancey | Search Result - Patient Profile',
                 isAdmin  : req.session.isAdmin,
                 result   : dbUsername,
+                patientNotes:   patientNotes,
                 getPatient_fname    : req.session.fname,
                 getPatient_lname    : req.session.lname,
                 getPatient_hcard    : req.session.hcard,
@@ -55,6 +60,8 @@ db.query(
                 getPatient_province    : req.session.province,
                 getPatient_contact    : req.session.contact
             });
+        }
+        );
         }
     }
 );
@@ -78,20 +85,32 @@ db.query(
             req.session.province = dbUsername[0].patient_province;
             req.session.contact = dbUsername[0].patient_contact;
             console.log("est" + dbUsername[0].patient_firstname);
-            res.render('patient/patientmenu', {
-                username : req.session.username,
-                pageId   : 'patientprofile',
-                title    : 'Chancey | Search Result - Patient Profile',
-                isAdmin  : req.session.isAdmin,
-                result   : dbUsername,
-                getPatient_fname    : req.session.fname,
-                getPatient_lname    : req.session.lname,
-                getPatient_hcard    : req.session.hcard,
-                getPatient_street    : req.session.street,
-                getPatient_city    : req.session.city,
-                getPatient_province    : req.session.province,
-                getPatient_contact    : req.session.contact
-            });
+            
+            //
+            db.query(
+                'SELECT * FROM patient_notes WHERE patient_healthcard=?',
+                [ req.session.hcard ],
+                (err, patientNotes) => {
+                    res.render('patient/patientmenu', {
+                        username : req.session.username,
+                        pageId   : 'patientprofile',
+                        title    : 'Chancey | Search Result - Patient Profile',
+                        isAdmin  : req.session.isAdmin,
+                        result   : dbUsername,
+                        patientNotes:   patientNotes,
+                        getPatient_fname    : req.session.fname,
+                        getPatient_lname    : req.session.lname,
+                        getPatient_hcard    : req.session.hcard,
+                        getPatient_street    : req.session.street,
+                        getPatient_city    : req.session.city,
+                        getPatient_province    : req.session.province,
+                        getPatient_contact    : req.session.contact
+                    });
+                }
+            );
+            //
+            
+            
         }
     }
 );
