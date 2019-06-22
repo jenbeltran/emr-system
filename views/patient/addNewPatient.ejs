@@ -14,7 +14,7 @@
 <div class="container card bg-light" style="width: 40rem;">
     <form action="/patient/new" method="POST">
         <div class="form-group">
-                <% if(!getPatient_hcard && !getPatient_hcard.length > 0) {%>
+                <% if(!getPatient_hcard) {%>
                     <label><b>Please fill in </b></label>
                     <% }%>
                 <label>Health Card Number</label>
@@ -22,7 +22,7 @@
                 value="<% if(getPatient_hcard && getPatient_hcard.length > 0) {%><%=getPatient_hcard%><% } %>">
         </div>
         <div class="form-group">
-                <% if(!getPatient_fname && !getPatient_fname.length > 0) {%>
+                <% if(!getPatient_fname) {%>
                     <label><b>Please fill in </b></label>
                     <% }%>
             <label>First Name</label>
@@ -30,7 +30,7 @@
             value="<% if(getPatient_fname && getPatient_fname.length > 0) {%><%=getPatient_fname%><% } %>">
         </div>
         <div class="form-group">
-                <% if(!getPatient_lname && !getPatient_lname.length > 0) {%>
+                <% if(!getPatient_lname) {%>
                     <label><b>Please fill in </b></label>
                     <% }%>
             <label>Last Name</label>
@@ -43,7 +43,7 @@
                 <input type="text" id="patient_DOB" name="patient_DOB" class="form-control" placeholder="Enter (yyyy/mm/dd) Date of Birth">
             </div>
         <div class="form-group">
-            <% if(!getPatient_street && !getPatient_street.length > 0) {%>
+            <% if(!getPatient_street) {%>
                 <label><b>Please fill in </b></label>
                 <% }%>
             <label>Street Address</label>
@@ -52,7 +52,7 @@
             value="<% if(getPatient_street && getPatient_street.length > 0) {%><%=getPatient_street%><% } %>">
         </div>
         <div class="form-group">
-                <% if(!getPatient_city && !getPatient_city.length > 0) {%>
+                <% if(!getPatient_city) {%>
                     <label><b>Please fill in </b></label>
                     <% }%>
             <label>City</label>
@@ -60,7 +60,7 @@
             value="<% if(getPatient_city && getPatient_city.length > 0) {%><%=getPatient_city%><% } %>">
             </div>
         <div class="form-group">
-                <% if(!getPatient_province && !getPatient_province.length > 0) {%>
+                <% if(!getPatient_province) {%>
                     <label><b>Please fill in </b></label>
                     <% }%>
             <label>Province</label>
@@ -72,7 +72,7 @@
             <input type="text" name="patient_postalcode" class="form-control" placeholder="Enter postal code">
         </div>
         <div class="form-group">
-                <% if(!getPatient_contact && !getPatient_contact.length > 0) {%>
+                <% if(!getPatient_contact) {%>
                     <label><b>Please fill in </b></label>
                     <% }%>
             <label>Phone Number</label>
