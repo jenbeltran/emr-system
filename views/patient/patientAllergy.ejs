@@ -70,7 +70,7 @@
                                <td><%=patient.severity_level%></td>
                                <td>
                                     <a href="/patient/<%= getPatient_hcard%>/<%=patient.medications%>/allergyUpdate" class="btn btn-sm btn-success">Edit</a>
-                                <a href="" class="btn btn-sm btn-danger">Delete</a>
+                                <a href="/patient/<%= getPatient_hcard%>/<%=patient.medications%>/allergyDelete" class="btn btn-sm btn-danger">Delete</a>
                                </td>
                              </tr>
                              <% }) %>

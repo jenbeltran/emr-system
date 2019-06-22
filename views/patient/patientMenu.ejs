@@ -54,16 +54,10 @@
                 <ul class="navbar-nav mr-auto">
                         <li>
                             <a href="/patient/<%= getPatient_hcard%>/ProfileUpdate">
-                            Edit Profile |
+                            | Edit Patient's Profile |
                             </a>
                         </li>
-                    
-                        <li>
-                            <a href="">
-                                Delete Profile
-                            </a>
-                        </li>
-                        
+                                            
                     </ul>
                 </nav>
                 <tbody>
@@ -107,8 +101,8 @@
                 <% patientNotes.forEach((patient, index) => { %>
                 %>
                <tr>
-                  <td><%=patient.patient_note%></td>
                   <td><%=patient.date_created%></td>
+                  <td><%=patient.patient_note%></td>
                   <td>
                     <a href="/patient/<%=patient.id%>/NotesUpdate" class="btn btn-sm btn-success">Edit</a>
                     <a href="/patient/<%=patient.id%>/NotesDelete" class="btn btn-sm btn-danger">Delete</a>

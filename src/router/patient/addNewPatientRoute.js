@@ -35,6 +35,7 @@ function postAddNewPatientRoute(req, res, next) {
                 'select * from patient_profile where patient_healthcard=?',
                  [ req.body.patient_healthcard ],
                  (err, dbUsername) => {
+
                     req.session.fname = req.body.patient_firstname;
                     req.session.lname = req.body.patient_lastname;
                     req.session.hcard = req.body.patient_healthcard;
@@ -42,12 +43,19 @@ function postAddNewPatientRoute(req, res, next) {
                     req.session.city = req.body.patient_city;
                     req.session.province = req.body.patient_province;
                     req.session.contact = req.body.patient_contact;
+
+                    db.query(
+                        'SELECT * FROM patient_notes WHERE patient_healthcard=?',
+                        [ req.session.hcard ],
+                        (err, patientNotes) => {
+
                          res.render('patient/patientMenu', {
                              username : req.session.username,
                              pageId   : 'patientMenu',
                              title    : 'Chancey | Patient Profile',
                              isAdmin  : req.session.isAdmin,
                              result   : dbUsername,
+                             patientNotes:   patientNotes,
                              getPatient_fname    : req.body.patient_firstname,
                          getPatient_lname    : req.body.patient_lastname,
                          getPatient_hcard    : req.body.patient_healthcard,
@@ -57,6 +65,8 @@ function postAddNewPatientRoute(req, res, next) {
                          getPatient_contact    : req.body.patient_contact
                          });
                          next();
+                        }
+                        );
                  }
              );
             //

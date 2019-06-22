@@ -74,7 +74,7 @@
                       <td><%=patient.days_supply%></td>
                       <td>
                             <a href="/patient/<%= getPatient_hcard%>/<%=patient.prescription_name%>/PrescUpdate" class="btn btn-sm btn-success">Edit</a>
-                        <a href="" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="/patient/<%= getPatient_hcard%>/<%=patient.prescription_name%>/PrescDelete" class="btn btn-sm btn-danger">Delete</a>
                        </td>
                     </tr>
                     <% }) %>

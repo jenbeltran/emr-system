@@ -43,6 +43,10 @@ let patientNotesAddRoute = require('./patient/patientNotesAddRoute');
 let patientBillingDeleteRoute = require('./patient/patientBillingDeleteRoute');
 let patientImmunizationDeleteRoute = require('./patient/patientImmunizationDeleteRoute');
 let patientNotesDeleteRoute = require('./patient/patientNotesDeleteRoute');
+let patientPrescDeleteRoute = require('./patient/patientPrescDeleteRoute');
+let patientLabDeleteRoute = require('./patient/patientLabDeleteRoute');
+let patientRadioDeleteRoute = require('./patient/patientRadioDeleteRoute');
+let patientAllergyDeleteRoute = require('./patient/patientAllergyDeleteRoute');
 
 
 let patientImmunizationRoute = require('./patient/patientImmunizationRoute');
@@ -118,6 +122,8 @@ router.get('/patient/:id/:presc/PrescUpdate', patientPrescUpdateRoute.get);
 router.post('/patient/PrescUpdate', patientPrescUpdateRoute.post);
 router.get('/patient/:id/PrescAdd', patientPrescAddRoute.get);
 router.post('/patient/PrescAdd', patientPrescAddRoute.post);
+router.get('/patient/:id/:presc/PrescDelete', patientPrescDeleteRoute.get);
+router.post('/patient/PrescDelete', patientPrescDeleteRoute.post);
 
 
 // Route for Lab Result
@@ -126,6 +132,8 @@ router.get('/patient/:id/:lab/LabUpdate', patientLabUpdateRoute.get);
 router.post('/patient/LabUpdate', patientLabUpdateRoute.post);
 router.get('/patient/:id/LabAdd', patientLabAddRoute.get);
 router.post('/patient/LabAdd', patientLabAddRoute.post);
+router.get('/patient/:id/:lab/LabDelete', patientLabDeleteRoute.get);
+router.post('/patient/LabDelete', patientLabDeleteRoute.post);
 
 
 //Route for Radiology
@@ -134,6 +142,8 @@ router.get('/patient/:id/:radio/RadioUpdate', patientRadioUpdateRoute.get);
 router.post('/patient/RadioUpdate', patientRadioUpdateRoute.post);
 router.get('/patient/:id/RadioAdd', patientRadioAddRoute.get);
 router.post('/patient/RadioAdd', patientRadioAddRoute.post);
+router.get('/patient/:id/:radio/RadioDelete', patientRadioDeleteRoute.get);
+router.post('/patient/RadioDelete', patientRadioDeleteRoute.post);
 
 
 //Route for Allergies
@@ -142,6 +152,9 @@ router.get('/patient/:id/:allergy/AllergyUpdate', patientAllergyUpdateRoute.get)
 router.post('/patient/AllergyUpdate', patientAllergyUpdateRoute.post);
 router.get('/patient/:id/AllergyAdd', patientAllergyAddRoute.get);
 router.post('/patient/AllergyAdd', patientAllergyAddRoute.post);
+router.get('/patient/:id/:allergy/AllergyDelete', patientAllergyDeleteRoute.get);
+router.post('/patient/AllergyDelete', patientAllergyDeleteRoute.post);
+
 
 //Route for Patient Notes
 router.get('/patient/:id/NotesUpdate', patientNotesUpdateRoute.get);

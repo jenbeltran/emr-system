@@ -1,0 +1,30 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="container form-title">
+    <h1>Delete Patient Prescription Record</h1>
+</div>
+
+<% result.forEach((patient, index) => { %>
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/AllergyDelete" method="POST">
+        <div class="form-group">
+          <b> <label>Medications</label></b>
+        </div>
+        <div class="form-group">
+            <label><%=patient.medications%></label><br/>
+        </div>
+        <div class="form-group">
+        <b>  <label>Notes</label></b><br/>
+            <label><%=patient.notes%></label>
+        </div>
+        <div class="form-group">
+        <b>  <label>Severity Level</label></b><br/>
+            <label><%=patient.severity_level%></label>
+        </div>
+        <button type="submit" class="btn btn-primary">Are You Sure You Want to Delete?</button>
+    </form>
+</div>
+<% }) %>
+
+<%- include('../partials/footer'); -%>

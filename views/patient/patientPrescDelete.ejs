@@ -1,0 +1,38 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="container form-title">
+    <h1>Delete Patient Prescription Record</h1>
+</div>
+
+<% result.forEach((patient, index) => { %>
+<div class="container card bg-light" style="width: 40rem;">
+    <form action="/patient/PrescDelete" method="POST">
+        <div class="form-group">
+          <b> <label>Prescription Name</label></b>
+        </div>
+        <div class="form-group">
+            <label><%=patient.prescription_name%></label><br/>
+        </div>
+        <div class="form-group">
+        <b>  <label>Dose Quantity</label></b><br/>
+            <label><%=patient.dose_qty%></label>
+        </div>
+        <div class="form-group">
+        <b>  <label>Days Supply</label></b><br/>
+            <label><%=patient.days_supply%></label>
+        </div>
+        <div class="form-group">
+                <b>  <label>Administration</label></b><br/>
+                    <label><%=patient.route_of_admin%></label>
+                </div>
+        <div class="form-group">
+                <b>  <label>Date Filled</label></b><br/>
+                    <label><%=patient.date_filled%></label>
+               </div>
+        <button type="submit" class="btn btn-primary">Are You Sure You Want to Delete?</button>
+    </form>
+</div>
+<% }) %>
+
+<%- include('../partials/footer'); -%>
