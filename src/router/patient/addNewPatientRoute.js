@@ -10,13 +10,13 @@ function getAddNewPatientRoute(req, res, next) {
 	res.render('patient/addNewPatient', {
 		username : req.session.username,
         isAdmin  : req.session.isAdmin,
-        getPatient_fname : req.session.fname,
-        getPatient_lname    : req.session.lname,
-                    getPatient_hcard    : req.session.hcard,
-                    getPatient_street    : req.session.street,
-                    getPatient_city    : req.session.city,
-                    getPatient_province    : req.session.province,
-                    getPatient_contact    : req.session.contact,
+        getPatient_fname : "",
+        getPatient_lname    : "",
+                    getPatient_hcard    : "",
+                    getPatient_street    : "",
+                    getPatient_city    : "",
+                    getPatient_province    : "",
+                    getPatient_contact    : "",
 		pageId   : 'addNewPatient',
 		title    : 'Chancey | Add New Patient'
 	});

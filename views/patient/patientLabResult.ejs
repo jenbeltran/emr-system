@@ -68,7 +68,8 @@
                                <td><%=patient.test_name%></td>
                                <td><%=patient.date_completed%></td>
                                <td><%=patient.result%></td>
-                               <td><%=patient.abnormal%></td>
+                               <td><% if (patient.abnormal==1){%>Y<% } else {%>N <%}%></td>
+                               
                                <td>
                                     <a href="/patient/<%= getPatient_hcard%>/<%=patient.test_name%>/LabUpdate" class="btn btn-sm btn-success">Edit</a>
                                 <a href="/patient/<%= getPatient_hcard%>/<%=patient.test_name%>/LabDelete" class="btn btn-sm btn-danger">Delete</a>
